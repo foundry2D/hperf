@@ -1,0 +1,67 @@
+Commands:
+	perf record -b             # -b is for collecting branch stacks
+	perf script -i /path/to/perf.data --show-mmap-events -F comm,pid,time,period,event,ip,sym,symoff,dso,brstack
+	objdump -dlw -Mintel /path/to/dso
+	[perf-script --symbols=symbol,symbol,...]
+ 	[objdump --disassemble=symbol
+	highlight -flaO html core/clock.c | less
+
+Todo:
+-----
+
+done - fix scrollbar color
+done - wire up resizer
+done - preserve Code scroll position
+  done - preserve isel
+done - sym labels in disasm (colspan)
+? parse disasm (instruction / operands / comments)
+done - wire up insn_goto()
+  done - load dso block
+  done - center on insn
+  done - select insn
+done - source / disasm linkage
+  done - disasm select -> source select
+  done - disasm hover -> source highlight
+  done - source hover -> disasm highlight
+done - jump target highlight
+  done - disasm hover -> jump target highlight
+  done - disasm select -> jump target highlight (stronger)
+  done - arrow click -> jump target select
+  skip - arrow click again (jump target already selected) -> jump target center
+done - hit bars
+done - command-line options
+done - fix no-source insn-pane not desselecting src-pane line
+done - light theme
+done - stderr progress for serialization
+done - keyboard shortcuts
+done - branch taken
+- hyperlinks for source and span start
+
+Rationale:
+----------
+
+A. Count hits for symbols and for functions as well as address-based:
+all have their advantages:
+   - symbol-based helps understand global function importance
+   - func-based helps understand local (possibly static/inline) function importance
+     when debug information is available
+   - address-based give hit *density*, i.e. literal hotspots
+     (for example, a very large function could take a large fraction of the
+     overall time without having any real hotspot)
+   - address-based works without debug information and even without symbols
+
+
+B. We could have something more interactive for large binaries / large traces:
+- count hits at a symbol level, (plus dso level for special symbol [unknown])
+- give a choice to user as to what to annotate
+- re-read samples (filtered), objdump (filtered)
+- annotate that symbol (or whole dso if [unknown])
+
+drawbacks:
+- duplicated code (symbol-level hit counts)
+- we don't have a global view (percentage of all samples)
+- we can't cross symbol boundaries
+- not helping for symbol-stripped binaries
+- need interaction (conditional executions of perf-script and objdump)
+
+

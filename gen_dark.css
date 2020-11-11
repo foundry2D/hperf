@@ -1,0 +1,285 @@
+html, body, div, nav, table, th, tr, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-spacing: 0;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	color: #eee;
+	background-color: #333;
+	font-family: sans-serif;
+	scrollbar-width: thin;
+	scorllbar-color: #888 #444;
+}
+
+body.full {
+	height: 100vh;
+}
+
+::-webkit-scrollbar {
+	width: 0.5em;
+	height: 0.5em;
+}
+
+::-webkit-scrollbar-track {
+	background: #444;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #888;
+	border: 1px solid #444;
+}
+
+::-webkit-scrollbar-corner, ::-webkit-resizer {
+	background: #333;
+}
+
+
+nav {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	color: #ccc;
+	background-color: #444;
+}
+
+nav > a {
+	display: flex;
+	cursor: pointer;
+}
+
+nav > a > span {
+	display: flex;
+	padding: 0.3em 0.5em 0.3em 0.5em;
+}
+
+nav > span {
+	display: flex;
+	cursor: default;
+}
+
+nav > span > span {
+	display: flex;
+	padding: 0.3em 0.5em 0.3em 0.5em;
+	cursor: default;
+}
+
+nav > a > span, nav > span > span {
+	display: flex;
+	padding: 0.3em 0.5em 0.3em 0.5em;
+}
+
+nav > a.right {
+	margin-left: auto;
+}
+
+nav > a:hover {
+	color: #fff;
+	/*background-color: #f80;*/
+	background-color: #26a;
+}
+
+nav > a.active {
+	color: #fff;
+	background-color: #333;
+}
+
+main {
+	margin: 0;
+	padding: 0.5em;
+}
+
+main.col {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+	margin: 0;
+	padding: 0.3em;
+}
+
+main.col > div {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 0;
+	flex-grow: 1;
+	flex-shrink: 1;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+main.col > div.resize {
+	display: flex;
+	flex-grow: 0;
+	flex-basis: 0.3em;
+	background-color: #333;
+	cursor: col-resize;
+}
+
+main.col > div.resize:hover {
+	/*background-color: #f80;*/
+	background-color: #26a;
+}
+
+div.codeview {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 0;
+	font-family: monospace;
+	overflow-x: auto;
+	overflow-y: auto;
+	background-color: #222;
+}
+
+tr.insn, tr.src {
+	cursor: default;
+	/* Chromium fix */
+	transform: translate3d(0, 0, 0);
+}
+
+tr.src td.line {
+	text-align: right;
+	color: #888;
+}
+
+td.code {
+	white-space: pre;
+	text-align: left;
+}
+
+main h1 {
+	font-size: 130%;
+	color: #fff;
+}
+
+main a {
+	cursor: pointer;
+	background-color: #444;
+}
+
+main a:hover {
+	/*background-color: #f80;*/
+	background-color: #26a;
+}
+
+table {
+	font-family: monospace;
+}
+
+table th {
+	padding: 0.2em 0.5em 0.5em 0.4em;
+	text-align: right;
+}
+
+table td {
+	padding: 0.2em 0.5em 0.2em 0.5em;
+	text-align: right;
+	white-space: pre;
+}
+
+.left {
+	text-align: left;
+}
+
+tr.clickable {
+	cursor: pointer;
+}
+
+tr.clickable:hover {
+	background-color: #26a;
+}
+
+tr.insn.insn-hover-target {
+	background-color: #140;
+}
+
+tr.insn.insn-select-target {
+	background-color: #160;
+}
+
+tr.insn:hover, tr.insn.src-hover, tr.src:hover, tr.src.insn-hover {
+	background-color: #136;
+}
+
+tr.insn.insn-select, tr.src.insn-select {
+	background-color: #26a;
+}
+
+span.bar {
+	display: inline-block;
+	background-color: #39f;
+	border: 1px solid #000;
+}
+
+td.hits {
+	color: #39f;
+}
+
+td.sym {
+	padding-top: 0.5em;
+	color: #fff;
+	font-weight: bold;
+	text-align: left;
+}
+
+td.sym-offset {
+	color: #888;
+}
+
+.goto:hover {
+	color: #2f0;
+	cursor: pointer;
+}
+
+/* highlight */
+span.hl.com, span.hl.slc {
+	color: #998;
+}
+
+span.hl.ppc {
+	color: #5cf;
+}
+
+span.hl.pps {
+	color: #36a;
+}
+
+span.hl.str {
+	color: #36a;
+}
+
+span.hl.esc {
+	color: #48c;
+}
+
+span.hl.kwa {
+	color: #fff;
+	font-weight: bold;
+}
+
+span.hl.kwb {
+	color: #6d1;
+	font-weight: bold;
+}
+
+span.hl.kwc {
+	color: #fff;
+	font-style: italic;
+	font-weight: bold;
+}
+
+span.hl.kwd {
+	font-style: italic;
+}
+
+span.hl.num {
+	color: #3dd;
+}
+
+span.hl.opt {
+	color: #fff;
+}

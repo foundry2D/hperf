@@ -1,0 +1,291 @@
+html, body, div, nav, table, th, tr, td {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	border-spacing: 0;
+}
+
+body {
+	display: flex;
+	flex-direction: column;
+	color: #444;
+	background-color: #ffffff;
+	font-family: sans-serif;
+	scrollbar-width: thin;
+	scorllbar-color: #cdcdcd #f1f1f1;
+}
+
+body.full {
+	height: 100vh;
+}
+
+::-webkit-scrollbar {
+	width: 0.5em;
+	height: 0.5em;
+}
+
+::-webkit-scrollbar-track {
+	background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #cdcdcd;
+	border: 1px solid #f1f1f1;
+}
+
+::-webkit-scrollbar-corner, ::-webkit-resizer {
+	background: #ffffff;
+}
+
+
+nav {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+	color: #352e25;
+	background-color: #b5bac1;
+}
+
+nav > a {
+	display: flex;
+	cursor: pointer;
+}
+
+nav > a > span {
+	display: flex;
+	padding: 0.3em 0.5em 0.3em 0.5em;
+}
+
+nav > span {
+	display: flex;
+	cursor: default;
+}
+
+nav > span > span {
+	display: flex;
+	padding: 0.3em 0.5em 0.3em 0.5em;
+	cursor: default;
+}
+
+nav > a > span, nav > span > span {
+	display: flex;
+	padding: 0.3em 0.5em 0.3em 0.5em;
+}
+
+nav > a.right {
+	margin-left: auto;
+}
+
+nav > a:hover {
+	color: #ffffff;
+	background-color: #2ba5ff;
+}
+
+nav > a.active {
+	color: #000000;
+	background-color: #eee;
+}
+
+main {
+	margin: 0;
+	padding: 0.5em;
+}
+
+main.col {
+	display: flex;
+	flex-direction: row;
+	flex-grow: 1;
+	margin: 0;
+	padding: 0.3em;
+	background-color: #eee;
+}
+
+main.col > div {
+	display: flex;
+	flex-direction: column;
+	flex-basis: 0;
+	flex-grow: 1;
+	flex-shrink: 1;
+	overflow-x: hidden;
+	overflow-y: hidden;
+}
+
+main.col > div.resize {
+	display: flex;
+	flex-grow: 0;
+	flex-basis: 0.3em;
+	background-color: #eee;
+	cursor: col-resize;
+}
+
+main.col > div.resize:hover {
+	background-color: #2ba5ff;
+}
+
+div.codeview {
+	display: flex;
+	flex-direction: column;
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-basis: 0;
+	font-family: monospace;
+	overflow-x: auto;
+	overflow-y: auto;
+	background-color: #ffffff;
+}
+
+tr.insn, tr.src {
+	cursor: default;
+	/* Chromium fix */
+	transform: translate3d(0, 0, 0);
+}
+
+tr.src td.line {
+	text-align: right;
+	color: #888;
+}
+
+td.code {
+	white-space: pre;
+	text-align: left;
+}
+
+main h1 {
+	font-size: 130%;
+	color: #000000;
+}
+
+main a {
+	cursor: pointer;
+	color: #0071c5;
+	text-decoration: underline;
+}
+
+main a:hover {
+	color: #f80;
+}
+
+table {
+	font-family: monospace;
+}
+
+table th {
+	padding: 0.2em 0.5em 0.5em 0.4em;
+	text-align: right;
+}
+
+table td {
+	padding: 0.2em 0.5em 0.2em 0.5em;
+	text-align: right;
+	white-space: pre;
+}
+
+.left {
+	text-align: left;
+}
+
+tr.clickable {
+	cursor: pointer;
+}
+
+tr.clickable:hover {
+	color: #000;
+	background-color: #96d2ff;
+}
+
+tr.insn.insn-hover-target {
+	background-color: #f0ce8f;
+}
+
+tr.insn.insn-select-target {
+	background-color: #ff9e00;
+}
+
+tr.insn:hover, tr.insn.src-hover, tr.src:hover, tr.src.insn-hover {
+	background-color: #96d2ff;
+}
+
+tr.insn.insn-select {
+	color: #ffffff;
+	background-color: #2ba5ff;
+}
+
+tr.src.insn-select {
+	background-color: #2ba5ff;
+}
+
+span.bar {
+	display: inline-block;
+	background-color: #2ba5ff; /*#0071c5;*/
+	border: 1px solid #000;
+}
+
+td.hits {
+	color: #0071c5;
+}
+
+td.sym {
+	padding-top: 0.5em;
+	color: #000;
+	font-weight: bold;
+	text-align: left;
+}
+
+td.sym-offset {
+	color: #888;
+}
+
+.goto:hover {
+	color: #000;
+	background-color: #ff9e00;
+	cursor: pointer;
+}
+
+/* highlight */
+span.hl.com, span.hl.slc {
+	color: #777;
+}
+
+span.hl.ppc {
+	color: #27b;
+}
+
+span.hl.pps {
+	color: #258;
+}
+
+span.hl.str {
+	color: #26a;
+}
+
+span.hl.esc {
+	color: #38f;
+}
+
+span.hl.kwa {
+	color: #000;
+	font-weight: bold;
+}
+
+span.hl.kwb {
+	color: #381;
+	font-weight: bold;
+}
+
+span.hl.kwc {
+	color: #000;
+	font-style: italic;
+	font-weight: bold;
+}
+
+span.hl.kwd {
+	font-style: italic;
+}
+
+span.hl.num {
+	color: #288;
+}
+
+span.hl.opt {
+	color: #000;
+}
